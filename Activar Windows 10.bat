@@ -228,9 +228,10 @@ exit
 	echo   :: Presione 2 - Enterprise N                      ::
 	echo   :: Presione 3 - Enterprise G                      ::
 	echo   :: Presione 4 - Enterprise G N                    ::
-	echo   :: Presione 5 - Volver al Menu anterior           ::	
+	echo   :: Presione 5 - Enterprise LTSC                   ::
+	echo   :: Presione 6 - Volver al Menu anterior           ::	
 	echo   ::::::::::::::::::::::::::::::::::::::::::::::::::::
-	choice /c 12345 >nul
+	choice /c 123456 >nul
 	SET ENTERP=%ERRORLEVEL%
 	IF %ENTERP% EQU 1 (
 	Echo Procederemos a introducir la clave de edicion para Enterprise.
@@ -261,6 +262,13 @@ exit
 	goto :Process
 	)
 	IF %ENTERP% EQU 5 (
+	Echo Procederemos a introducir la clave de edicion para Enterprise LTSC.
+	pause
+	slmgr /ipk M7XTQ-FN8P6-TTKYV-9D4CC-J462D
+	pause
+	goto :Process
+	)
+	IF %ENTERP% EQU 6 (
 	goto :VERMENU
 	)
 endlocal
